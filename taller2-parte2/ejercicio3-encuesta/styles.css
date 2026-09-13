@@ -1,0 +1,191 @@
+:root {
+  --surface: rgba(8, 24, 22, 0.75);
+  --surface-solid: #0a1a18;
+  --border: #1a3b34;
+  --border-strong: #26584d;
+  --primary: #37ffb0;
+  --primary-2: #0dfcff;
+  --text: #d9fff0;
+  --muted: #6fa891;
+  --navy: #eafff6;
+  --danger: #ff4d6d;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --glow: 0 0 0 4px rgba(55, 255, 176, 0.15), 0 0 24px rgba(55, 255, 176, 0.18);
+  --shadow: 0 24px 70px rgba(0, 0, 0, 0.55);
+  --container: 620px;
+  --font-display: "Orbitron", system-ui, sans-serif;
+  --font-body: "Rajdhani", system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { color-scheme: dark; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 17px;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 15% 0%, rgba(55, 255, 176, 0.16), transparent 45%),
+    linear-gradient(180deg, #030b0a 0%, #081712 100%);
+  min-height: 100vh;
+}
+
+.form-section { padding: 60px 20px; }
+
+.form-container {
+  width: min(100%, var(--container));
+  margin-inline: auto;
+  padding: 38px;
+  background: var(--surface);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.form-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  top: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--primary-2));
+}
+
+.form-header { margin-bottom: 30px; }
+
+.eyebrow {
+  color: var(--primary);
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-shadow: 0 0 10px rgba(55, 255, 176, 0.6);
+}
+
+.form-header h1 {
+  margin: 12px 0 0;
+  color: var(--navy);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.7rem, 5vw, 2.2rem);
+}
+
+.form-header p {
+  margin: 14px 0 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.contact-form { display: grid; gap: 24px; }
+
+fieldset {
+  margin: 0;
+  padding: 20px 22px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.015);
+}
+
+fieldset legend {
+  padding: 0 8px;
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  color: var(--navy);
+}
+
+.choice-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.choice {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.choice input {
+  margin-top: 3px;
+  accent-color: var(--primary);
+  width: 18px;
+  height: 18px;
+}
+
+.form-field { display: grid; gap: 8px; }
+
+.form-field label {
+  color: var(--navy);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+input[type="range"] {
+  width: 100%;
+  accent-color: var(--primary);
+}
+
+.range-output {
+  font-family: var(--font-display);
+  color: var(--primary);
+  font-size: 0.85rem;
+}
+
+.field-help {
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  padding-top: 8px;
+}
+
+.button {
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 24px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.button-primary {
+  border: 1px solid var(--primary);
+  background: linear-gradient(135deg, var(--primary), var(--primary-2));
+  color: #04160f;
+  font-weight: 700;
+  box-shadow: 0 0 24px rgba(55, 255, 176, 0.3);
+}
+.button-primary:hover { transform: translateY(-2px); box-shadow: 0 0 32px rgba(55, 255, 176, 0.5); }
+
+.button-secondary {
+  border: 1px solid var(--border-strong);
+  background: transparent;
+  color: var(--navy);
+}
+.button-secondary:hover { border-color: var(--primary); color: var(--primary); }
+
+@media (max-width: 520px) {
+  .form-container { padding: 24px 18px; }
+  .form-actions { flex-direction: column; }
+  .button { width: 100%; }
+}

@@ -1,0 +1,183 @@
+:root {
+  --bg: #05070f;
+  --surface: rgba(14, 20, 38, 0.75);
+  --surface-solid: #0d1326;
+  --border: #1f2b4d;
+  --border-strong: #2b3d6e;
+  --primary: #0dfcff;
+  --primary-2: #7b5cff;
+  --text: #dbe6ff;
+  --muted: #7c8bb5;
+  --navy: #eaf3ff;
+  --danger: #ff4d6d;
+  --success: #37ffb0;
+  --radius-sm: 8px;
+  --radius-lg: 22px;
+  --glow: 0 0 0 4px rgba(13, 252, 255, 0.12), 0 0 24px rgba(13, 252, 255, 0.15);
+  --shadow: 0 24px 70px rgba(0, 0, 0, 0.55);
+  --container: 560px;
+  --font-display: "Orbitron", system-ui, sans-serif;
+  --font-body: "Rajdhani", system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { color-scheme: dark; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 17px;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 20% 0%, rgba(13, 252, 255, 0.16), transparent 45%),
+    linear-gradient(180deg, #05070f 0%, #0a0e1c 100%);
+  min-height: 100vh;
+}
+
+.form-section { padding: 60px 20px; }
+
+.form-container {
+  width: min(100%, var(--container));
+  margin-inline: auto;
+  padding: 38px;
+  background: var(--surface);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.form-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  top: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--primary-2));
+}
+
+.form-header { margin-bottom: 30px; }
+
+.eyebrow {
+  color: var(--primary);
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-shadow: 0 0 10px rgba(13, 252, 255, 0.6);
+}
+
+.form-header h1 {
+  margin: 12px 0 0;
+  color: var(--navy);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.7rem, 5vw, 2.2rem);
+}
+
+.form-header p {
+  margin: 14px 0 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.contact-form { display: grid; gap: 22px; }
+.form-field { display: grid; gap: 8px; }
+
+.form-field label {
+  color: var(--navy);
+  font-weight: 600;
+}
+
+.form-field input {
+  width: 100%;
+  padding: 13px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface-solid);
+  color: var(--text);
+  font: inherit;
+  outline: none;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.form-field input::placeholder { color: #4c5a82; }
+
+.form-field input:focus {
+  border-color: var(--primary);
+  box-shadow: var(--glow);
+}
+
+.form-field input:not(:placeholder-shown):valid { border-color: var(--success); }
+.form-field input:not(:placeholder-shown):invalid { border-color: var(--danger); }
+
+.choice {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.choice input {
+  margin-top: 3px;
+  accent-color: var(--primary);
+  width: 18px;
+  height: 18px;
+}
+
+.required-mark {
+  color: var(--danger);
+  text-shadow: 0 0 8px rgba(255, 77, 109, 0.5);
+}
+
+.field-help {
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  padding-top: 8px;
+}
+
+.button {
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 24px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.button-primary {
+  border: 1px solid var(--primary);
+  background: linear-gradient(135deg, var(--primary), var(--primary-2));
+  color: #04101a;
+  font-weight: 700;
+  box-shadow: 0 0 24px rgba(13, 252, 255, 0.25);
+}
+.button-primary:hover { transform: translateY(-2px); box-shadow: 0 0 32px rgba(13, 252, 255, 0.45); }
+
+.button-secondary {
+  border: 1px solid var(--border-strong);
+  background: transparent;
+  color: var(--navy);
+}
+.button-secondary:hover { border-color: var(--primary); color: var(--primary); }
+
+@media (max-width: 480px) {
+  .form-container { padding: 24px 18px; }
+  .form-actions { flex-direction: column; }
+  .button { width: 100%; }
+}
