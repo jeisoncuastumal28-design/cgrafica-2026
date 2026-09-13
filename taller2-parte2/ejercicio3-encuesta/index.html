@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 3 · Encuesta</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="form-page">
+    <section class="form-section">
+      <div class="form-container">
+        <header class="form-header">
+          <span class="eyebrow">EJERCICIO 03</span>
+          <h1>Encuesta de satisfacción</h1>
+          <p>Responde con radio buttons, checkboxes y una escala tipo range.</p>
+        </header>
+
+        <form class="contact-form" action="#" method="post" novalidate>
+          <fieldset>
+            <legend>¿Cómo calificarías el servicio recibido?</legend>
+            <div class="choice-list">
+              <label class="choice">
+                <input type="radio" name="calificacion" value="excelente" checked>
+                <span>Excelente</span>
+              </label>
+              <label class="choice">
+                <input type="radio" name="calificacion" value="bueno">
+                <span>Bueno</span>
+              </label>
+              <label class="choice">
+                <input type="radio" name="calificacion" value="regular">
+                <span>Regular</span>
+              </label>
+              <label class="choice">
+                <input type="radio" name="calificacion" value="malo">
+                <span>Malo</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>¿Qué aspectos te gustaría que mejoráramos?</legend>
+            <div class="choice-list">
+              <label class="choice">
+                <input type="checkbox" name="mejoras" value="tiempos">
+                <span>Tiempos de respuesta</span>
+              </label>
+              <label class="choice">
+                <input type="checkbox" name="mejoras" value="soporte">
+                <span>Soporte técnico</span>
+              </label>
+              <label class="choice">
+                <input type="checkbox" name="mejoras" value="precios">
+                <span>Precios</span>
+              </label>
+              <label class="choice">
+                <input type="checkbox" name="mejoras" value="documentacion">
+                <span>Documentación</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <div class="form-field">
+            <label for="recomendacion">
+              ¿Qué tan probable es que nos recomiendes?
+              <output id="recomendacion-valor" class="range-output" for="recomendacion">8</output>
+            </label>
+            <input
+              type="range"
+              id="recomendacion"
+              name="recomendacion"
+              min="0"
+              max="10"
+              step="1"
+              value="8"
+              aria-describedby="recomendacion-help"
+            >
+            <small id="recomendacion-help" class="field-help">0 = nada probable, 10 = totalmente probable.</small>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="button button-primary">Enviar encuesta</button>
+            <button type="reset" class="button button-secondary">Limpiar</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const rango = document.getElementById('recomendacion');
+    const salida = document.getElementById('recomendacion-valor');
+    if (rango && salida) {
+      rango.addEventListener('input', () => { salida.textContent = rango.value; });
+    }
+  </script>
+</body>
+</html>

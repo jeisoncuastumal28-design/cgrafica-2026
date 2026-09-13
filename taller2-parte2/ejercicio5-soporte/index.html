@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 5 · Soporte técnico</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="form-page">
+    <section class="form-section">
+      <div class="form-container">
+        <header class="form-header">
+          <span class="eyebrow">EJERCICIO 05</span>
+          <h1>Solicitar soporte técnico</h1>
+          <p>Describe tu incidencia y adjunta evidencia si es necesario.</p>
+        </header>
+
+        <form class="contact-form" action="#" method="post" novalidate>
+          <div class="form-field">
+            <label for="asunto">
+              Asunto
+              <span class="required-mark" aria-hidden="true">*</span>
+            </label>
+            <input type="text" id="asunto" name="asunto" placeholder="Ej. Error al iniciar sesión" required>
+          </div>
+
+          <div class="form-field">
+            <label for="prioridad">
+              Prioridad
+              <span class="required-mark" aria-hidden="true">*</span>
+            </label>
+            <select id="prioridad" name="prioridad" required>
+              <option value="" selected disabled>Seleccione una prioridad</option>
+              <option value="baja">Baja</option>
+              <option value="media">Media</option>
+              <option value="alta">Alta</option>
+              <option value="critica">Crítica</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label for="descripcion">
+              Descripción del problema
+              <span class="required-mark" aria-hidden="true">*</span>
+            </label>
+            <textarea
+              id="descripcion"
+              name="descripcion"
+              rows="6"
+              maxlength="1000"
+              placeholder="Describe el problema, cuándo ocurre y qué esperabas que sucediera..."
+              required
+            ></textarea>
+            <small class="field-help">Máximo 1000 caracteres.</small>
+          </div>
+
+          <div class="form-field">
+            <label for="evidencia">Evidencia (captura de pantalla, log, etc.)</label>
+            <input type="file" id="evidencia" name="evidencia" accept="image/*,.pdf,.txt,.log">
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="button button-primary">Enviar ticket</button>
+            <button type="reset" class="button button-secondary">Limpiar</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
